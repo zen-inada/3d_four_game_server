@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D FOUR GAME</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- three.jsの描画領域 -->
+  <div id="three-container"></div>
+
+  <!-- UI -->
+  <div id="ui-container">
+    <h1>ZEN Connect³（ゼン・コネクトキューブ）</h1>
+
+    <!-- ☰ サイドバー（設定）トグル -->
+    <button id="sidebarToggle" aria-expanded="false" aria-controls="appSidebar">☰ </button>
+
+    <!-- トップバー -->
+    <div class="top-bar">
+      <!-- 左側：設定＆操作 -->
+      <div class="settings-left">
+        <div class="game-info">
+          <p>⏱️ 持ち時間: <span id="timerDisplay">30s</span></p>
+        </div>
+
+        <div class="controls">
+
+
+          <div class="player-select-container">
+            <div class="player-block">
+              <label class="radio-label">
+                <input type="radio" name="firstPlayer" value="ai1" checked>
+                先手
+              </label>
+              <select id="ai1Select" class="player-select"></select>
+            </div>
+
+            <div class="player-block">
+              <label class="radio-label">
+                <input type="radio" name="firstPlayer" value="ai2">
+                先手
+              </label>
+              <select id="ai2Select" class="player-select"></select>
+            </div>
+          </div>
+
+          <button id="autoButton">オート開始</button>
+          <button id="stepButton">ステップ</button>
+          <button id="resetButton">リセット</button>
+        </div>
+      </div>
+
+      <!-- 右側：ログ専用エリア -->
+      <div class="log-box">
+        <h3>📄 ログ</h3>
+        <div id="logMessages"></div>
+      </div>
+    </div>
+
+    <!-- 試合履歴 -->
+    <div id="matchHistoryContainer">
+      <h3>試合履歴</h3>
+      <table id="matchHistory">
+        <thead>
+          <tr>
+            <th>試合</th>
+            <th>勝者</th>
+            <th>勝利手数</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="finalResult"></div>
+      <button id="nextMatchButton" style="display:none;">2戦目を開始する</button>
+    </div>
+  </div>
+
+  <!-- ▶ サイドバー本体（右からスライドイン） -->
+  <aside id="appSidebar" aria-hidden="true">
+    <div class="sidebar-header">
+      <h3>⚙️ 設定</h3>
+      <button id="sidebarClose" aria-label="サイドバーを閉じる">×</button>
+    </div>
+
+    <!-- ここにクローン作成＆チーム名入力 -->
+    <div id="gitCloneContainer" style="display: block;">
+      <h3>📥 Git リポジトリをクローン</h3>
+      <form id="cloneForm">
+        <label>リポジトリURL:
+          <input type="url" id="repoUrl" placeholder="https://github.com/user/repo.git" required />
+        </label>
+        <br />
+        <label>チーム名:
+          <input type="text" id="teamName" placeholder="例: 神AIチーム" required />
+        </label>
+        <br />
+        <button type="button" id="clonebtn">クローン</button>
+      </form>
+      <p id="cloneResult"></p>
+      <label for="timeSelect">⏱️ 持ち時間:</label>
+      <select id="timeSelect"></select>
+      <label>オート速度(ms):
+        <input id="autoSpeed" type="number" value="500" style="width:70px;" />
+      </label>
+      <div id="teamManagerContainer">
+        <h3>🔧 登録済みチーム</h3>
+        <ul id="teamList"></ul>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- サイドバー用のオーバーレイ -->
+  <div id="sidebarOverlay" hidden></div>
+
+  <script type="module" src="/static/three/build/three.module.js"></script>
+  <script type="module" src="/static/three/examples/jsm/controls/OrbitControls.js"></script>
+
+  <script type="module" src="main.js"></script>
+
+</body>
+</html>

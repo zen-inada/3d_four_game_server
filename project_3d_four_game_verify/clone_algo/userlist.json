@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "updatedAt": "2025-09-23T02:49:01.635906+00:00",
+  "users": [
+    {
+      "id": "zen-inoue--3d4tiktok",
+      "name": "inoueテスト",
+      "path": "/home/ec2-user/project_3d_four_game_verify/clone_algo/zen-inoue--3d4tiktok",
+      "createdAt": "2025-09-19T07:45:08.360605+00:00",
+      "updatedAt": "2025-09-19T07:45:08.360605+00:00"
+    },
+    {
+      "id": "usr_bb56d04be561",
+      "name": "inoueTest2",
+      "path": "/home/ec2-user/project_3d_four_game_verify/clone_algo/zen-inoue--3DConnectFour",
+      "createdAt": "2025-09-23T02:49:01.635455+00:00",
+      "updatedAt": "2025-09-23T02:49:01.635455+00:00"
+    }
+  ]
+}

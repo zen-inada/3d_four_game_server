@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../algorithm_runners"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "3d_four_game"
+	}
+}

@@ -1,0 +1,17 @@
+# Pythonキャッシュ
+__pycache__/
+*.pyc
+
+# 仮想環境
+.venv/
+env/
+
+# OSの不要ファイル
+.DS_Store
+Thumbs.db
+
+# VSCodeの個人設定（プロジェクト共有に不要）
+.vscode/
+
+# アルゴリズムクローン用ディレクトリ
+algorithm_runners/storage/git_clones/

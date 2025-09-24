@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../algorithm_runners"
+		},
+		{
+			"path": "../../root_project"
+		}
+	],
+	"settings": {}
+}

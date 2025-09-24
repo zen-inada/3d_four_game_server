@@ -1,0 +1,346 @@
+/* ========== 全体設定 ========== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  background-color: #111;
+  background-image: url('../static/textures/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  background-attachment: fixed;
+  color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ========== UI コンテナ ========== */
+#ui-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  color: #fff;
+}
+
+/* ========== 見出し & ラベル類 ========== */
+#ui-container h1,
+#ui-container h3,
+#ui-container label,
+#ui-container p {
+  margin: 8px 0;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* ========== 入力 & セレクト ========== */
+#ui-container input,
+#ui-container select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+#ui-container input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#ui-container select option {
+  background-color: #222;
+  color: #fff;
+}
+
+#ui-container select:focus {
+  outline: none;
+  border-color: #66afe9;
+  box-shadow: 0 0 4px rgba(102, 175, 233, 0.6);
+}
+
+/* ========== ボタン ========== */
+#ui-container button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-left: 5px;
+}
+
+#ui-container button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ========== 試合履歴テーブル ========== */
+#matchHistory {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#matchHistory th,
+#matchHistory td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  text-align: center;
+  color: #fff;
+}
+
+/* ========== レイアウト：上部バー構造 ========== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.settings-left {
+  flex: 1;
+  min-width: 600px;
+}
+
+.clone-right {
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ========== クローンフォーム ========== */
+#cloneForm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#cloneForm input {
+  flex-grow: 1;
+  min-width: 200px;
+  height: 28px;
+  padding: 4px 8px;
+}
+
+#cloneForm button {
+  height: 28px;
+  padding: 4px 12px;
+}
+
+/* ========== コントロールパネル縮小表示 ========== */
+#controlPanel {
+  transform: scale(0.85);
+  transform-origin: top center;
+}
+
+/* ========== モバイル対応 ========== */
+@media (max-width: 768px) {
+  #ui-container {
+    padding: 15px;
+  }
+
+  #ui-container input,
+  #ui-container select,
+  #ui-container button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+#gitCloneContainer {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 6px;
+}
+/* #logPanel {
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 13px;
+} */
+
+#logMessages {
+  margin: 0px auto;
+  width: 90%;
+  max-width: 900px;
+  padding: 0px 19px 5px 7px;
+  color: #fff;
+  font-size: 14px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#logMessages p {
+  margin: 4px 0;
+  font-family: monospace;
+  white-space: pre-wrap;
+  line-height: 1.4em;
+  color: #eee;
+}
+.log-box {
+  align-self: flex-start;
+  margin-right: 40px;
+}
+.log-box {
+  min-width: 700px;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #fff;
+  max-height: 200px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px; /* ✅ 少し左に寄せる */
+}
+
+.log-header {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.log-content {
+  padding: 10px 15px;
+  overflow-y: auto;
+  flex-grow: 1;
+
+  /* 各行: 1.4em + pタグの上下margin (4px + 4px ≒ 0.6em) ≒ 2em */
+  max-height: calc((1.4em + 8px) * 5);
+}
+
+
+.log-content p {
+  margin: 4px 0;
+  font-family: monospace;
+  white-space: pre-wrap;
+  line-height: 1.4em;
+  color: #eee;
+}
+/* Three.js キャンバスをまとめて下にオフセット */
+#three-container {
+  margin-top: 250px;   /* 好きな値に調整（例: 60〜120px） */
+}
+
+/* 念のため、キャンバスが余計な隙間を作らないように */
+#three-container canvas {
+  display: block;
+}
+/* ===== サイドバー ===== */
+#appSidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(450px, 90vw);
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.95);
+  border-left: 1px solid rgba(255,255,255,0.1);
+  transform: translateX(100%);
+  transition: transform .25s ease;
+  z-index: 1000;
+  color: #fff;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+#appSidebar.open { transform: translateX(0); }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+#sidebarClose {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* オーバーレイ */
+#sidebarOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 999;
+}
+
+/* トグルボタン軽く整える */
+#sidebarToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  padding: 8px 12px;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.6);  /* 任意で見た目調整 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#teamManagerContainer {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: white;
+}
+
+#teamList input {
+  width: 200px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid #555;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+#teamList button {
+  background: rgba(255, 0, 0, 0.5);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
